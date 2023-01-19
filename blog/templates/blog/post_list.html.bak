@@ -1,84 +1,13 @@
-</html><!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta title="Homepage">
-    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
-    <link href="assets/css/style.css" rel="stylesheet">
-</head>
-<body>
-<div class="wrapper">
-    <header class="header container">
-        <div class="header__main">
-            <div class="logo">
-                <!--                <img class="logo__image" src="assets/images/tsu.jpg" alt="TSU">-->
-                <div class="logo__title">
-                    IDK how name it
-                </div>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
             </div>
-            <nav class="header__navigation">
-                <a href="#" class="navigation__link">Профиль</a>
-                <a href="#" class="navigation__link">Новости</a>
-                <a href="#" class="navigation__link">Статистика</a>
-                <a href="contact.php" class="navigation__link">Обратная связь</a>
-                <a href="contact_post.php" class="navigation__link">Обратная связь post</a>
-            </nav>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
-    </header>
-    <main class="main_content container">
-        <aside class="main_content__news-sidebar">
-            <header class="news-sidebar__header">Новости</header>
-            <ul class="news-sidebar__list">
-                <li class="news-sidebar__item">
-                    <a href="#" class="news-sidebar__link">NaVi в финале</a>
-                </li>
-                <li class="news-sidebar__item">
-                    <a href="#" class="news-sidebar__link">111111</a>
-                </li>
-                <li class="news-sidebar__item">
-                    <a href="#" class="news-sidebar__link">2222222</a>
-                </li>
-                <li class="news-sidebar__item">
-                    <a href="#" class="news-sidebar__link">333333</a>
-                </li>
-                <li class="news-sidebar__item">
-                    <a href="#" class="news-sidebar__link">4444</a>
-                </li>
-                <li class="news-sidebar__item">
-                    <a href="#" class="news-sidebar__link">55555</a>
-                </li>
-                <li class="news-sidebar__item">
-                    <a href="#" class="news-sidebar__link">6125141</a>
-                </li>
-            </ul>
-        </aside>
-        <section class="main_content__content">
-            <a href="#" class="content__news-1 content__item">
-                <figcaption class="news-title">Новость 1 (главная)</figcaption>
-                <img src="assets/images/1.jpeg" class="content__image">
-            </a>
-            <a href="#" class="content__news-2 content__item">
-                <figcaption class="news-title">Новость 2</figcaption>
-                <img src="assets/images/1.jpeg" class="content__image">
-            </a>
-            <a href="#" class="content__news-3 content__item">
-                <figcaption class="news-title">Новость 3</figcaption>
-                <img src="assets/images/1.jpeg" class="content__image">
-            </a>
-            <a href="#" class="content__news-4 content__item">
-                <figcaption class="news-title">Новость 4</figcaption>
-                <img src="assets/images/1.jpeg" class="content__image">
-            </a>
-            <a href="#" class="content__news-5 content__item">
-                <figcaption class="news-title">Новость 5</figcaption>
-                <img src="assets/images/1.jpeg" class="content__image">
-            </a>
-        </section>
-    </main>
-</div>
-<!--<footer class="container footer">-->
-<!--    <div>Lyubchenko bogdan</div>-->
-<!--</footer>-->
-</body>
-</html>
+    {% endfor %}
+{% endblock %}
